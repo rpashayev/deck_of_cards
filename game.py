@@ -23,8 +23,19 @@ print(f'\nThe rule is very simple: guess the suit of the next card and if its ra
 
 # end game message
 def end_game():
+    max_points = 0
+    winner = ''
     for player in Player.players:
         print(f'{player.name} score is {player.points}')
+        if player.points == max_points:
+            winner = ''
+        else:
+            winner = player.name
+            max_points = player.points
+    if winner:
+        print(f'The winner is {winner}')
+    else:
+        print('It is a draw! No winner this time')
         
 # game cycle function
 def game_cycle():
